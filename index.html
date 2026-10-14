@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Persiapkan Data Perbaruan DTSEN</title>
+<meta name="description" content="Daftar dokumen dan data yang perlu disiapkan sebelum melakukan pembaruan data DTSEN: identitas keluarga, kondisi sosial ekonomi, kepemilikan aset, dan keterangan anggota keluarga.">
+<meta property="og:title" content="Persiapkan Data Perbaruan DTSEN">
+<meta property="og:description" content="Siapkan dokumen dan informasi berikut sebelum melakukan pembaruan data DTSEN.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="id_ID">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal-900: #08423f;
+    --teal-700: #0b7a75;
+    --teal-600: #0e8c86;
+    --teal-100: #d7efed;
+    --teal-50: #eef8f7;
+    --ink: #17282a;
+    --muted: #55686a;
+    --line: #d9e4e3;
+    --paper: #ffffff;
+    --page: #f4f8f8;
+    --amber: #f2b705;
+    --radius: 14px;
+    --font: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+  body {
+    margin: 0;
+    font-family: var(--font);
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--ink);
+    background: var(--page);
+  }
+  img { max-width: 100%; display: block; }
+  a { color: var(--teal-700); }
+  :focus-visible { outline: 3px solid var(--amber); outline-offset: 2px; border-radius: 4px; }
+  .wrap { width: min(1120px, 100% - 2.5rem); margin-inline: auto; }
+
+  /* Top bar */
+  .topbar { background: var(--teal-900); color: #fff; font-size: .8125rem; }
+  .topbar .wrap { padding-block: .45rem; }
+  .nav { position: sticky; top: 0; z-index: 20; background: var(--paper); border-bottom: 1px solid var(--line); }
+  .nav .wrap { display: flex; align-items: center; gap: 1.5rem; min-height: 64px; }
+  .brand { display: flex; align-items: center; gap: .65rem; text-decoration: none; color: var(--ink); font-weight: 800; letter-spacing: -.01em; }
+  .brand-mark { width: 36px; height: 36px; border-radius: 10px; background: var(--teal-700); color: #fff; display: grid; place-items: center; font-size: .8125rem; font-weight: 800; }
+  .nav ul { list-style: none; margin: 0 0 0 auto; padding: 0; display: flex; gap: .25rem; flex-wrap: wrap; justify-content: flex-end; }
+  .nav ul a { display: block; padding: .45rem .8rem; border-radius: 999px; text-decoration: none; color: var(--muted); font-size: .9rem; font-weight: 600; }
+  .nav ul a:hover { background: var(--teal-50); color: var(--teal-700); }
+
+  /* Hero */
+  .hero { background: var(--teal-700); color: #fff; padding: 3.5rem 0 7.5rem; }
+  .hero h1 { margin: 0 0 .9rem; font-size: clamp(2rem, 5vw, 3.25rem); line-height: 1.12; letter-spacing: -.025em; font-weight: 800; max-width: 18ch; }
+  .hero p { margin: 0 0 1.75rem; max-width: 56ch; font-size: 1.125rem; color: #dff3f1; }
+  .btn { display: inline-flex; align-items: center; gap: .55rem; padding: .8rem 1.4rem; border-radius: 999px; font: inherit; font-weight: 700; text-decoration: none; border: 2px solid transparent; cursor: pointer; }
+  .btn-light { background: #fff; color: var(--teal-900); }
+  .btn-light:hover { background: var(--teal-50); }
+  .btn-line { border-color: rgba(255,255,255,.7); color: #fff; }
+  .btn-line:hover { background: rgba(255,255,255,.12); }
+  .btn-teal { background: var(--teal-700); color: #fff; padding: .55rem 1.1rem; font-size: .9rem; }
+  .btn-teal:hover { background: var(--teal-900); }
+  .btn svg { width: 18px; height: 18px; flex: none; }
+  .hero-actions { display: flex; gap: .75rem; flex-wrap: wrap; }
+
+  /* Checklist card overlapping the hero */
+  .prep { margin-top: -5rem; position: relative; }
+  .card { background: var(--paper); border: 1px solid var(--line); border-radius: 20px; box-shadow: 0 10px 30px rgba(8,66,63,.10); }
+  .prep .card { padding: clamp(1.25rem, 3vw, 2.25rem); }
+  .prep-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.25rem; }
+  .prep-head h2 { margin: 0; font-size: 1.5rem; color: var(--teal-700); letter-spacing: -.01em; }
+  .prep-head p { margin: .15rem 0 0; color: var(--muted); }
+  .progress { min-width: 220px; }
+  .progress-text { font-size: .875rem; font-weight: 700; color: var(--teal-900); margin-bottom: .35rem; }
+  .bar { height: 10px; border-radius: 999px; background: var(--teal-100); overflow: hidden; }
+  .bar > span { display: block; height: 100%; width: 0; background: var(--teal-600); border-radius: 999px; transition: width .3s ease; }
+
+  .checklist { list-style: none; margin: 0; padding: 0; display: grid; gap: .75rem; grid-template-columns: repeat(2, 1fr); }
+  .checklist > li { display: flex; }
+  .check { flex: 1; display: flex; gap: 1rem; padding: 1rem 1.1rem; border: 1px solid var(--line); border-radius: var(--radius); background: #fff; cursor: pointer; transition: background .2s, border-color .2s; }
+  .check:hover { border-color: var(--teal-600); }
+  .check input { position: absolute; opacity: 0; pointer-events: none; }
+  .check .dot { flex: none; width: 34px; height: 34px; border-radius: 50%; background: var(--teal-700); color: #fff; font-weight: 700; display: grid; place-items: center; transition: background .2s; }
+  .check .dot svg { display: none; width: 18px; height: 18px; }
+  .check input:checked ~ .dot { background: var(--teal-900); }
+  .check input:checked ~ .dot .n { display: none; }
+  .check input:checked ~ .dot svg { display: block; }
+  .check:has(input:checked) { background: var(--teal-50); border-color: var(--teal-600); }
+  .check:has(input:focus-visible) { outline: 3px solid var(--amber); outline-offset: 2px; }
+  .check b { display: block; line-height: 1.35; }
+  .check small { display: block; color: var(--muted); font-size: .9rem; margin-top: .1rem; }
+  .check ul { margin: .35rem 0 0; padding-left: 1.1rem; color: var(--ink); font-size: .92rem; }
+  .check .btn { margin-top: .6rem; }
+  .check-body { min-width: 0; }
+
+  /* Sections */
+  section.block { padding: 4rem 0 0; }
+  .sec-head { max-width: 62ch; margin-bottom: 1.5rem; }
+  .sec-head h2 { margin: 0 0 .4rem; font-size: clamp(1.5rem, 3vw, 2rem); letter-spacing: -.02em; line-height: 1.2; }
+  .sec-head p { margin: 0; color: var(--muted); }
+
+  .notice { display: flex; gap: .85rem; background: #fff8e1; border: 1px solid #f1dc93; border-radius: var(--radius); padding: 1rem 1.15rem; margin-bottom: 1.5rem; }
+  .notice svg { width: 22px; height: 22px; flex: none; color: #9a6b00; margin-top: .15rem; }
+  .notice p { margin: 0; font-size: .95rem; }
+
+  .tools { display: flex; gap: .75rem; flex-wrap: wrap; margin-bottom: 1rem; }
+  .search { flex: 1 1 280px; position: relative; }
+  .search svg { position: absolute; left: .95rem; top: 50%; transform: translateY(-50%); width: 18px; height: 18px; color: var(--muted); }
+  .search input { width: 100%; padding: .75rem 1rem .75rem 2.7rem; font: inherit; border: 1px solid var(--line); border-radius: 999px; background: #fff; color: var(--ink); }
+  .search input:focus { border-color: var(--teal-600); outline: 3px solid var(--teal-100); }
+  .btn-ghost { background: #fff; border: 1px solid var(--line); color: var(--teal-900); padding: .65rem 1.1rem; font-size: .9rem; }
+  .btn-ghost:hover { border-color: var(--teal-600); background: var(--teal-50); }
+
+  details.group { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); margin-bottom: .75rem; overflow: hidden; }
+  details.group[hidden] { display: none; }
+  details.group > summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 1rem; padding: 1.1rem 1.35rem; font-weight: 700; font-size: 1.125rem; }
+  details.group > summary::-webkit-details-marker { display: none; }
+  details.group > summary:hover { background: var(--teal-50); }
+  .gicon { flex: none; width: 40px; height: 40px; border-radius: 12px; background: var(--teal-100); color: var(--teal-700); display: grid; place-items: center; }
+  .gicon svg { width: 22px; height: 22px; }
+  .gtitle { flex: 1; }
+  .gcount { font-size: .85rem; font-weight: 600; color: var(--muted); background: var(--page); border-radius: 999px; padding: .15rem .7rem; }
+  .chev { flex: none; width: 20px; height: 20px; color: var(--muted); transition: transform .2s ease; }
+  details[open] > summary .chev { transform: rotate(180deg); }
+  details[open] > summary { border-bottom: 1px solid var(--line); }
+  .gbody { padding: 1.1rem 1.35rem 1.35rem; }
+  .qs { margin: 0; padding-left: 1.4rem; display: grid; gap: .55rem; }
+  .qs > li::marker { color: var(--teal-700); font-weight: 700; }
+  .qs[hidden], .qs > li[hidden] { display: none; }
+  .qs .qs { margin-top: .5rem; padding-left: 1.2rem; list-style: "– "; gap: .4rem; }
+  .qs .qs > li::marker { color: var(--muted); font-weight: 400; }
+  .opts { display: block; font-size: .9rem; color: var(--muted); margin-top: .1rem; }
+  .hint { display: block; font-size: .9rem; color: var(--teal-900); background: var(--teal-50); border-left: 3px solid var(--teal-600); padding: .3rem .7rem; margin-top: .35rem; border-radius: 0 8px 8px 0; font-style: italic; }
+  .cond { font-weight: 700; color: var(--teal-700); }
+  .empty { display: none; text-align: center; padding: 2rem 1rem; color: var(--muted); }
+  .empty.show { display: block; }
+
+  /* Photos */
+  .photos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; align-items: start; }
+  figure.photo { margin: 0; background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+  figure.photo img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+  figure.photo figcaption { padding: .9rem 1.1rem 1.1rem; }
+  figure.photo b { display: block; }
+  figure.photo span { color: var(--muted); font-size: .9rem; }
+  .photo-note { margin: 1rem 0 0; color: var(--muted); font-size: .9rem; }
+
+  /* CTA + footer */
+  .cta { margin-top: 4rem; background: var(--teal-900); color: #fff; border-radius: 20px; padding: clamp(1.5rem, 4vw, 2.75rem); display: flex; gap: 1.5rem; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+  .cta h2 { margin: 0 0 .3rem; font-size: 1.5rem; letter-spacing: -.01em; }
+  .cta p { margin: 0; color: #cfe8e6; max-width: 52ch; }
+  footer { margin-top: 3rem; background: #fff; border-top: 1px solid var(--line); padding: 1.75rem 0; color: var(--muted); font-size: .9rem; }
+  footer p { margin: 0 0 .35rem; }
+
+  @media (max-width: 860px) {
+    .checklist { grid-template-columns: 1fr; }
+    .photos { grid-template-columns: 1fr; }
+    .nav ul { display: none; }
+    .hero { padding-bottom: 6.5rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="wrap">Panduan persiapan pembaruan data DTSEN</div></div>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Persiapkan Data Perbaruan DTSEN">
+      <span class="brand-mark" aria-hidden="true">DT</span>
+      <span>Perbaruan DTSEN</span>
+    </a>
+    <nav aria-label="Navigasi halaman">
+      <ul>
+        <li><a href="#dokumen">Dokumen</a></li>
+        <li><a href="#data">Data yang disiapkan</a></li>
+        <li><a href="#foto">Foto rumah</a></li>
+        <li><a href="#unduh">Unduh format</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <h1>Persiapkan Data Perbaruan DTSEN</h1>
+      <p>Kumpulkan dokumen dan jawaban berikut sebelum mengisi formulir pembaruan data. Dengan data yang sudah siap, pengisian bisa selesai dalam sekali duduk.</p>
+      <div class="hero-actions">
+        <a class="btn btn-light" href="https://dtsen-form.bps.go.id/indonesia-pintar" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
+          Unduh format surat keterangan
+        </a>
+        <a class="btn btn-line" href="#dokumen">Lihat daftar dokumen</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dokumen -->
+  <section class="prep" id="dokumen" aria-labelledby="dokumen-title">
+    <div class="wrap">
+      <div class="card">
+        <div class="prep-head">
+          <div>
+            <h2 id="dokumen-title">Siapkan dokumen dan informasi berikut</h2>
+            <p>Ketika Anda ingin melakukan pembaruan data. Centang yang sudah siap.</p>
+          </div>
+          <div class="progress" role="status" aria-live="polite">
+            <div class="progress-text" id="progress-text">0 dari 6 siap</div>
+            <div class="bar"><span id="progress-bar"></span></div>
+          </div>
+        </div>
+
+        <ul class="checklist">
+          <li>
+            <label class="check">
+              <input type="checkbox" data-key="surat">
+              <span class="dot"><span class="n">1</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>
+              <span class="check-body">
+                <b>Surat Keterangan dari Kepala Desa/Lurah</b>
+                <a class="btn btn-teal" href="https://dtsen-form.bps.go.id/indonesia-pintar" target="_blank" rel="noopener noreferrer">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
+                  Unduh Format
+                </a>
+              </span>
+            </label>
+          </li>
+          <li>
+            <label class="check">
+              <input type="checkbox" data-key="kk">
+              <span class="dot"><span class="n">2</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>
+              <span class="check-body"><b>Kartu Keluarga dan/atau KTP</b><small>seluruh anggota keluarga</small></span>
+            </label>
+          </li>
+          <li>
+            <label class="check">
+              <input type="checkbox" data-key="pln">
+              <span class="dot"><span class="n">3</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>
+              <span class="check-body"><b>Nomor ID Pelanggan PLN atau Nomor Meteran</b></span>
+            </label>
+          </li>
+          <li>
+            <label class="check">
+              <input type="checkbox" data-key="foto">
+              <span class="dot"><span class="n">4</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>
+              <span class="check-body">
+                <b>File Foto Rumah, meliputi:</b>
+                <ul>
+                  <li>Foto tampak depan rumah</li>
+                  <li>Foto ruang tamu tampak lantai dan dinding</li>
+                  <li>Foto kamar mandi</li>
+                </ul>
+              </span>
+            </label>
+          </li>
+          <li>
+            <label class="check">
+              <input type="checkbox" data-key="koordinat">
+              <span class="dot"><span class="n">5</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>
+              <span class="check-body"><b>Informasi Titik Koordinat Rumah</b><small>Lintang dan Bujur</small></span>
+            </label>
+          </li>
+          <li>
+            <label class="check">
+              <input type="checkbox" data-key="nisn">
+              <span class="dot"><span class="n">6</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>
+              <span class="check-body"><b>Nomor Induk Sekolah Nasional (NISN)/Nomor Induk Mahasiswa (NIM)</b><small>untuk anggota keluarga yang bersekolah</small></span>
+            </label>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Data -->
+  <section class="block" id="data" aria-labelledby="data-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="data-title">Data yang harus disiapkan</h2>
+        <p>Pertanyaan di formulir terbagi dalam empat kelompok. Buka tiap kelompok untuk melihat apa saja yang akan ditanyakan.</p>
+      </div>
+
+      <div class="notice">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+        <p>Pengeluaran bulanan dan mingguan boleh diisi dengan pengeluaran bulan atau minggu terakhir. Cek tiap catatan miring di bawah pertanyaan.</p>
+      </div>
+
+      <div class="tools">
+        <label class="search">
+          <span class="sr" style="position:absolute;left:-9999px">Cari pertanyaan</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          <input type="search" id="q" placeholder="Cari pertanyaan, misalnya “listrik” atau “NIK”" autocomplete="off">
+        </label>
+        <button type="button" class="btn btn-ghost" id="toggle-all">Buka semua</button>
+      </div>
+
+      <details class="group" open>
+        <summary>
+          <span class="gicon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M10 21v-6h4v6"/></svg></span>
+          <span class="gtitle">Identitas Keluarga</span>
+          <span class="gcount"></span>
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </summary>
+        <div class="gbody">
+          <ol class="qs">
+            <li>Siapa nama Kepala Keluarga di Kartu Keluarga (KK) Anda?</li>
+            <li>Berapa Nomor Induk Kependudukan (NIK) Kepala Keluarga Anda?</li>
+            <li>Berapa Nomor Kartu Keluarga (KK) Anda?</li>
+            <li>Berapa jumlah anggota keluarga Anda?</li>
+            <li>Provinsi tempat tinggal keluarga saat ini</li>
+            <li>Kabupaten/Kota tempat tinggal keluarga saat ini</li>
+            <li>Kecamatan tempat tinggal keluarga saat ini</li>
+            <li>Desa/Kelurahan tempat tinggal keluarga saat ini</li>
+            <li>Kode Pos tempat tinggal saat ini</li>
+            <li>Alamat Lengkap Rumah/Tempat Tinggal Anda?</li>
+            <li>Nama Jalan Rumah/Tempat Tinggal Anda?</li>
+            <li>Nomor Rumah/Tempat Tinggal Anda?</li>
+            <li>Apakah alamat tempat tinggal saat ini sesuai dengan Kartu Keluarga?</li>
+            <li>Titik lokasi (geotagging) tempat tinggal saat ini (Latitude, Longitude)</li>
+          </ol>
+        </div>
+      </details>
+
+      <details class="group">
+        <summary>
+          <span class="gicon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></span>
+          <span class="gtitle">Keterangan Sosial Ekonomi Keluarga</span>
+          <span class="gcount"></span>
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </summary>
+        <div class="gbody">
+          <ol class="qs">
+            <li>Apa jenis bangunan tempat tinggal yang Anda tempati?
+              <span class="opts">Rumah Tunggal | Apartemen | Rumah Susun | Rumah Deret | Lainnya. Bila memilih <b>Lainnya</b>, sebutkan jenis bangunannya.</span>
+            </li>
+            <li>Selain keluarga Anda, apakah ada keluarga lain yang tinggal di rumah/tempat tinggal ini? (Ya/Tidak)
+              <ol class="qs">
+                <li><span class="cond">Bila Ya:</span> Berapa jumlah keluarga (selain keluarga Anda) yang tinggal dalam rumah/tempat tinggal ini?</li>
+                <li><span class="cond">Bila Tidak:</span> Berapa orang yang tinggal dalam 1 rumah/tempat tinggal Anda?</li>
+              </ol>
+            </li>
+            <li>Apa status kepemilikan bangunan tempat tinggal yang Anda tempati?
+              <span class="opts">Milik Sendiri | Kontrak/Sewa | Bebas Sewa | Dinas | Lainnya. Bila memilih <b>Lainnya</b>, sebutkan status kepemilikannya.</span>
+              <ol class="qs">
+                <li><span class="cond">Bila Milik Sendiri:</span> Apa bukti kepemilikan tanah bangunan tempat tinggal yang Anda tempati?
+                  <span class="opts">SHM | Sertifikat selain SHM (SHGB, SHSRS) | Surat bukti lainnya (Girik, Letter C, dll) | Tidak Punya</span>
+                </li>
+                <li>Berapa perkiraan harga sewa bangunan tempat tinggal Anda selama sebulan?</li>
+                <li><span class="cond">Bila Kontrak/Sewa:</span> Berapa harga kontrak/sewa bangunan tempat tinggal Anda selama sebulan?</li>
+                <li><span class="cond">Bila Bebas Sewa atau Dinas:</span> Berapa perkiraan harga sewa bangunan tempat tinggal Anda selama sebulan?</li>
+              </ol>
+            </li>
+            <li>Berapa luas lantai bangunan tempat tinggal Anda?
+              <span class="hint">Luas bangunan yang ditempati dan digunakan untuk keperluan sehari-hari (sebatas atap rumah)</span>
+            </li>
+            <li>Apa jenis lantai terluas di tempat tinggal Anda?</li>
+            <li>Apa jenis dinding terluas di tempat tinggal Anda?</li>
+            <li>Bagaimana kondisi dinding di tempat tinggal Anda?</li>
+            <li>Di tempat tinggal Anda, apakah memiliki fasilitas tempat buang air besar (BAB) dan siapa saja yang menggunakan?</li>
+            <li>Apa jenis kloset yang digunakan di tempat tinggal Anda?</li>
+            <li>Apa tempat pembuangan akhir tinja di tempat tinggal Anda?</li>
+            <li>Apa sumber air minum utama di tempat tinggal Anda?</li>
+            <li>Apa sumber penerangan utama di tempat tinggal Anda?</li>
+            <li>Berapa jumlah meteran listrik yang terpasang di rumah Anda?</li>
+            <li>Berapa daya pada meteran listrik ke-1 yang terpasang?</li>
+            <li>ID Pelanggan PLN</li>
+            <li>Berapa rata-rata pengeluaran listrik selama sebulan?
+              <span class="hint">Dapat menggunakan pengeluaran sebulan terakhir</span>
+            </li>
+            <li>Berapa rata-rata pengeluaran pulsa untuk seluruh anggota keluarga selama sebulan?
+              <span class="hint">Dapat menggunakan pengeluaran sebulan terakhir</span>
+            </li>
+            <li>Berapa rata-rata pengeluaran internet untuk seluruh anggota keluarga selama sebulan?
+              <span class="hint">Dapat menggunakan pengeluaran sebulan terakhir</span>
+            </li>
+            <li>Berapa rata-rata pengeluaran makanan keluarga selama seminggu?
+              <span class="hint">Dapat menggunakan pengeluaran seminggu terakhir</span>
+            </li>
+            <li>Berapa rata-rata pengeluaran bukan makanan rutin keluarga selama sebulan?
+              <span class="hint">Dapat menggunakan pengeluaran sebulan terakhir</span>
+            </li>
+            <li>Berapa rata-rata pengeluaran bukan makanan rutin keluarga selama setahun?</li>
+            <li>Total pendapatan seluruh anggota keluarga dari pekerjaan baik berupa uang maupun barang/jasa (Ada | Tidak Ada)
+              <span class="hint">Gaji, tunjangan, uang makan, honor, lembur, dll</span>
+            </li>
+            <li>Total pendapatan seluruh anggota keluarga dari usaha, baik offline maupun online (Ada | Tidak Ada)
+              <span class="hint">Offline seperti warung, kosan, rentenir, dll. Online seperti affiliate, online shop, endorse, youtuber, dll</span>
+            </li>
+            <li>Total pendapatan seluruh anggota keluarga dari penerimaan lain (Ada | Tidak Ada)
+              <span class="hint">Misalnya transfer, pemberian, passive income, pensiunan, kupon SBN, Obligasi, dll</span>
+            </li>
+            <li>Foto Rumah
+              <ol class="qs">
+                <li>Foto tampak depan rumah</li>
+                <li>Foto ruang tamu tampak lantai dan dinding</li>
+                <li>Foto kamar mandi</li>
+              </ol>
+            </li>
+          </ol>
+        </div>
+      </details>
+
+      <details class="group">
+        <summary>
+          <span class="gicon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 13h18"/></svg></span>
+          <span class="gtitle">Kepemilikan Aset</span>
+          <span class="gcount"></span>
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </summary>
+        <div class="gbody">
+          <ol class="qs">
+            <li>Kepemilikan tabung gas 3 kilogram</li>
+            <li>Kepemilikan tabung gas 5 kilogram</li>
+            <li>Kepemilikan lemari es</li>
+            <li>Kepemilikan Air Conditioner (AC)</li>
+            <li>Kepemilikan emas perhiasan</li>
+            <li>Kepemilikan komputer/laptop/tablet</li>
+            <li>Kepemilikan sepeda motor</li>
+            <li>Total nilai aset sepeda motor</li>
+            <li>Kepemilikan mobil</li>
+            <li>Kepemilikan aset rumah selain yang saat ini sedang dihuni</li>
+            <li>Kepemilikan aset lahan selain yang saat ini sedang dihuni</li>
+          </ol>
+        </div>
+      </details>
+
+      <details class="group">
+        <summary>
+          <span class="gicon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8"/><path d="M18 14.2a6.5 6.5 0 0 1 3.5 5.8"/></svg></span>
+          <span class="gtitle">Keterangan Anggota Keluarga</span>
+          <span class="gcount"></span>
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </summary>
+        <div class="gbody">
+          <span class="hint" style="margin:0 0 1rem">Pertanyaan berikut diisi untuk setiap anggota keluarga.</span>
+          <ol class="qs">
+            <li>Nama</li>
+            <li>Nomor Induk Kependudukan (NIK)</li>
+            <li>Status keberadaan saat ini</li>
+            <li>Tanggal Lahir</li>
+            <li>Jenis Kelamin</li>
+            <li>Status Hubungan dengan Kepala Keluarga</li>
+            <li>Status Kawin</li>
+            <li>Umur</li>
+            <li>Partisipasi Sekolah</li>
+            <li>Ijazah / STTB tertinggi yang dimiliki</li>
+            <li>Profesi pekerjaan utama</li>
+            <li>Apakah YBS menyandang Disabilitas Fisik?</li>
+            <li>Apakah YBS menyandang Disabilitas Mental?</li>
+            <li>Apakah YBS menyandang Disabilitas Intelektual?</li>
+            <li>Apakah YBS menyandang Disabilitas Sensorik Netra?</li>
+            <li>Apakah YBS menyandang Disabilitas Sensorik Rungu?</li>
+            <li>Apakah YBS menyandang Disabilitas Sensorik Wicara?</li>
+            <li>Apakah YBS memiliki keluhan kesehatan kronis/menahun?</li>
+          </ol>
+        </div>
+      </details>
+
+      <p class="empty" id="empty">Tidak ada pertanyaan yang cocok. Coba kata kunci lain.</p>
+    </div>
+  </section>
+
+  <!-- Foto -->
+  <section class="block" id="foto" aria-labelledby="foto-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="foto-title">Contoh foto rumah</h2>
+        <p>Siapkan tiga foto berikut dalam bentuk file di ponsel atau komputer Anda, supaya bisa langsung diunggah saat mengisi formulir.</p>
+      </div>
+      <div class="photos">
+        <figure class="photo">
+          <img src="assets/foto-tampak-depan.jpg" alt="Contoh foto tampak depan rumah, memperlihatkan seluruh bagian depan bangunan" loading="lazy">
+          <figcaption><b>Foto tampak depan rumah</b><span>Ambil dari halaman atau jalan agar seluruh bagian depan terlihat.</span></figcaption>
+        </figure>
+        <figure class="photo">
+          <img src="assets/foto-ruang-tamu.jpg" alt="Contoh foto ruang tamu yang memperlihatkan lantai dan dinding" loading="lazy">
+          <figcaption><b>Foto ruang tamu tampak lantai dan dinding</b><span>Pastikan jenis lantai dan kondisi dinding terlihat jelas.</span></figcaption>
+        </figure>
+        <figure class="photo">
+          <img src="assets/foto-kamar-mandi.jpg" alt="Contoh foto kamar mandi" loading="lazy">
+          <figcaption><b>Foto kamar mandi</b><span>Perlihatkan fasilitas buang air besar dan kloset yang digunakan.</span></figcaption>
+        </figure>
+      </div>
+      <p class="photo-note">Foto di atas hanya contoh. Gunakan foto rumah Anda sendiri.</p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="unduh" aria-labelledby="unduh-title">
+    <div class="wrap">
+      <div class="cta">
+        <div>
+          <h2 id="unduh-title">Unduh format surat keterangan</h2>
+          <p>Format Surat Keterangan Kepala Desa/Lurah tersedia di situs formulir DTSEN. Bawa surat ini ke kantor desa atau kelurahan Anda.</p>
+        </div>
+        <a class="btn btn-light" href="https://dtsen-form.bps.go.id/indonesia-pintar" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
+          Buka dtsen-form.bps.go.id
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><b>Persiapkan Data Perbaruan DTSEN</b></p>
+    <p>Halaman ini hanya panduan persiapan. Pengisian dan pengiriman data dilakukan melalui <a href="https://dtsen-form.bps.go.id/indonesia-pintar" target="_blank" rel="noopener noreferrer">dtsen-form.bps.go.id</a>.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  // Checklist progress, remembered in this browser
+  var boxes = Array.prototype.slice.call(document.querySelectorAll('.check input'));
+  var text = document.getElementById('progress-text');
+  var bar = document.getElementById('progress-bar');
+  var KEY = 'dtsen-checklist';
+  var saved = {};
+  try { saved = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) { saved = {}; }
+
+  function update() {
+    var done = boxes.filter(function (b) { return b.checked; }).length;
+    text.textContent = done === boxes.length
+      ? 'Semua siap. Anda bisa mulai mengisi formulir.'
+      : done + ' dari ' + boxes.length + ' siap';
+    bar.style.width = (done / boxes.length * 100) + '%';
+  }
+  boxes.forEach(function (b) {
+    b.checked = !!saved[b.dataset.key];
+    b.addEventListener('change', function () {
+      saved[b.dataset.key] = b.checked;
+      try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch (e) {}
+      update();
+    });
+  });
+  update();
+
+  // Question counts per group
+  var groups = Array.prototype.slice.call(document.querySelectorAll('details.group'));
+  groups.forEach(function (g) {
+    var n = g.querySelectorAll(':scope > .gbody > .qs > li').length;
+    g.querySelector('.gcount').textContent = n + ' pertanyaan';
+  });
+
+  // Search and expand/collapse
+  var q = document.getElementById('q');
+  var empty = document.getElementById('empty');
+  var toggle = document.getElementById('toggle-all');
+
+  function filter() {
+    var term = q.value.trim().toLowerCase();
+    var anyVisible = false;
+    groups.forEach(function (g) {
+      var items = g.querySelectorAll(':scope > .gbody > .qs > li');
+      var shown = 0;
+      Array.prototype.forEach.call(items, function (li) {
+        var match = !term || li.textContent.toLowerCase().indexOf(term) !== -1;
+        li.hidden = !match;
+        if (match) shown++;
+      });
+      g.hidden = term && shown === 0;
+      if (term && shown > 0) g.open = true;
+      if (shown > 0 || !term) anyVisible = true;
+    });
+    empty.classList.toggle('show', !anyVisible);
+  }
+  q.addEventListener('input', filter);
+
+  toggle.addEventListener('click', function () {
+    var open = toggle.dataset.open !== 'true';
+    groups.forEach(function (g) { if (!g.hidden) g.open = open; });
+    toggle.dataset.open = open;
+    toggle.textContent = open ? 'Tutup semua' : 'Buka semua';
+  });
+})();
+</script>
+</body>
+</html>
